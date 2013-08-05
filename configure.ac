@@ -16,6 +16,7 @@ AC_INIT([include],[master])
 AM_INIT_AUTOMAKE([foreign])
 AM_MAINTAINER_MODE
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile
+ux/Makefile])
 
 AC_OUTPUT

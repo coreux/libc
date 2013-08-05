@@ -13,7 +13,7 @@
 ##  limitations under the License.
 ##
 
-SUBDIRS = ux
+subincludedir = $(includedir)/ux
 
-include_HEADERS = \
-	stdarg.h stddef.h
+subinclude_HEADERS = \
+	cdefs.h
