@@ -41,7 +41,7 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stddef.h.html
 typedef long ptrdiff_t;
 
 /* Define wchar_t */
-typedef int ptrdiff_t;
+typedef int wchar_t;
 
 /* Define size_t */
 typedef unsigned long size_t;
