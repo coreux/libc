@@ -29,12 +29,14 @@
 # define UX_STRING_(a)                 #a
 
 # if defined(__GNUC__)
+#  define UX_WEAK_                     __attribute__((weak))
 #  if defined(__APPLE__) || defined(_WIN32)
 #   define UX_SUF_(name, suffix)       __asm("_" UX_STRING_(name) suffix)
 #  else
 #   define UX_SUF_(name, suffix)       __asm(UX_STRING_(name) suffix)
 #  endif
 # else
+#  define UX_WEAK_
 #  define UX_SUF_(name, suffix)
 # endif
 
