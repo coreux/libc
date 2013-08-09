@@ -41,7 +41,9 @@
 # endif
 
 # define UX_SUFFIX_UX03_               "$UX$2003"
+# define UX_SUFFIX_PRIVATE_            "$UX$private"
 
 # define UX_SYM03_(name)               UX_SUF_(name, UX_SUFFIX_UX03_)
+# define UX_PRIVATE_(name)             UX_SUF_(name, UX_SUFFIX_PRIVATE_)
 
 #endif /*!UX_CDEFS_H_*/
