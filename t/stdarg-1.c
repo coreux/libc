@@ -34,7 +34,7 @@ stdargtest(int n, ...)
 	va_list ap;
 	const char *arg;
 	
-	ap = va_start(ap, n);
+	va_start(ap, n);
 	for(total = 0; n; n--)
 	{
 		arg = va_arg(ap, const char *);
