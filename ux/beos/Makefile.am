@@ -13,15 +13,6 @@
 ##  limitations under the License.
 ##
 
-AM_CPPFLAGS = @AM_CPPFLAGS@ -I${top_builddir} -I${top_srcdir}
-LDADD = libutils.a
+subincludedir = $(includedir)/ux/beos
 
-noinst_LIBRARIES = libutils.a
-
-libutils_a_SOURCES = utils.h utils.c
-libutils_a_CPPFLAGS = @AM_CPPFLAGS@
-
-noinst_PROGRAMS = \
-	cdefs-1 \
-	stdarg-1 \
-	stddef-1
+subinclude_HEADERS = types.h

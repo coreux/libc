@@ -68,10 +68,6 @@ typedef int wchar_t;
 # endif
 
 /* size_t: Unsigned integer type of the result of the sizeof operator */
-# ifdef __SIZE_TYPE__
-typedef __SIZE_TYPE__ size_t;
-# else
-typedef unsigned long size_t;
-# endif
+# include <ux/size.h>
 
 #endif /*!UX_STDDEF_H_*/
