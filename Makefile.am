@@ -15,7 +15,7 @@
 
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = ux t .
+SUBDIRS = ux sys t .
 
 include_HEADERS = \
 	stdarg.h stddef.h

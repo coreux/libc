@@ -20,10 +20,13 @@ BT_PROG_XCODE
 AC_PROG_CC
 AC_PROG_CC_C99
 BT_PROG_CC_WARN
+AC_PROG_RANLIB
 
 AC_CONFIG_FILES([
 Makefile
 ux/Makefile
+ux/beos/Makefile
+sys/Makefile
 t/Makefile
 ])
 

@@ -13,7 +13,9 @@
 ##  limitations under the License.
 ##
 
+SUBDIRS = beos
+
 subincludedir = $(includedir)/ux
 
 subinclude_HEADERS = \
-	cdefs.h
+	cdefs.h fixedtypes.h size.h timedef.h
