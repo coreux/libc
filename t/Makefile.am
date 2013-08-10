@@ -11,20 +11,11 @@
 ##  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ##  See the License for the specific language governing permissions and
 ##  limitations under the License.
+##
 
-AC_INIT([include],[master],[https://github.com/coreux/include/issues],,[https://github.com/coreux/include])
-AM_INIT_AUTOMAKE([foreign])
-AC_CONFIG_MACRO_DIR([m4])
-AM_MAINTAINER_MODE
-BT_PROG_XCODE
-AC_PROG_CC
-AC_PROG_CC_C99
-BT_PROG_CC_WARN
+noinst_PROGRAMS = \
+	cdefs-1 \
+	stdarg-1 \
+	stddef-1
 
-AC_CONFIG_FILES([
-Makefile
-ux/Makefile
-t/Makefile
-])
-
-AC_OUTPUT
+stdarg_1_SOURCES = stdarg-1.c utils.h utils.c

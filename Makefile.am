@@ -13,7 +13,14 @@
 ##  limitations under the License.
 ##
 
-SUBDIRS = ux
+ACLOCAL_AMFLAGS = -I m4
+
+SUBDIRS = ux t .
 
 include_HEADERS = \
 	stdarg.h stddef.h
+
+tests: all
+	t/cdefs-1
+	t/stdarg-1
+	t/stddef-1
