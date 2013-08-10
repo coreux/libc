@@ -21,7 +21,7 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stdarg.h.html
 #ifndef UX_STDARG_H_
 # define UX_STDARG_H_                  1
 
-# if defined(__GNUC__) && (__GNUC_VERSION__ < 300000L)
+# if defined(__GNUC__) && (__GNUC__ < 3)
 
 /* Older versions of GCC don't provide convenient builtins */
 
