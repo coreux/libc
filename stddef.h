@@ -38,12 +38,24 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stddef.h.html
 # endif /*NULL*/
 
 /* Define ptrdiff_t */
+# ifdef __PTRDIFF_TYPE__
+typedef __PTRDIFF_TYPE__ ptrdiff_t;
+# else
 typedef long ptrdiff_t;
+# endif
 
 /* Define wchar_t */
+# ifdef __WCHAR_TYPE__
+typedef __WCHAR_TYPE__ wchar_t;
+# else
 typedef int wchar_t;
+# endif
 
 /* Define size_t */
+# ifdef __SIZE_TYPE__
+typedef __SIZE_TYPE__ size_t;
+# else
 typedef unsigned long size_t;
+# endif
 
 #endif /*!UX_STDDEF_H_*/
