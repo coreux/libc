@@ -15,7 +15,7 @@
 
 SUBDIRS = \
 	x86-64 \
-	beos darwin
+	beos darwin linux
 
 subincludedir = $(includedir)/ux
 

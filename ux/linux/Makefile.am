@@ -11,27 +11,8 @@
 ##  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ##  See the License for the specific language governing permissions and
 ##  limitations under the License.
+##
 
-AC_INIT([include],[master],[https://github.com/coreux/include/issues],,[https://github.com/coreux/include])
-AM_INIT_AUTOMAKE([foreign])
-AC_CONFIG_MACRO_DIR([m4])
-AM_MAINTAINER_MODE
-BT_PROG_XCODE
-AC_PROG_CC
-AC_PROG_CC_C99
-BT_PROG_CC_WARN
-AC_PROG_RANLIB
-BT_ENABLE_XSI
+subincludedir = $(includedir)/ux/linux
 
-AC_CONFIG_FILES([
-Makefile
-ux/Makefile
-ux/x86-64/Makefile
-ux/beos/Makefile
-ux/darwin/Makefile
-ux/linux/Makefile
-sys/Makefile
-t/Makefile
-])
-
-AC_OUTPUT
+subinclude_HEADERS = types.h
