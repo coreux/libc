@@ -14,18 +14,12 @@
  *  limitations under the License.
  */
 
-#ifndef UX_TIMEDEF_H_
-# define UX_TIMEDEF_H_                 1
+#ifndef UX_SIZEDEF_H_
+# define UX_SIZEDEF_H_                 1
 
-# if _XOPEN_SOURCE >= 600
-/* clock_t: Used for system times in clock ticks or CLOCKS_PER_SEC */
-typedef int clock_t;
-# endif
+# include <ux/machtypes.h>
 
-/* time_t: Used for time in seconds */
-typedef int time_t;
+/* size_t: Unsigned integer type of the result of the sizeof operator */
+typedef UX_SIZE_ size_t;
 
-/* timer_t: Used for timer ID returned by timer_create() */
-typedef void *timer_t;
-
-#endif /*!UX_TIMEDEF_H_*/
+#endif /*!UX_SIZEDEF_H_*/

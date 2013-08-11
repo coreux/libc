@@ -21,7 +21,7 @@
 #  error Compilation of this file is only supported on Darwin
 # endif
 
-# include <ux/fixedtypes.h>
+# include <ux/machtypes.h>
 
 /* blkcnt_t: Used for file block counts */
 typedef UX_INT64_ blkcnt_t;

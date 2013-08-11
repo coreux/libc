@@ -21,11 +21,14 @@ AC_PROG_CC
 AC_PROG_CC_C99
 BT_PROG_CC_WARN
 AC_PROG_RANLIB
+BT_ENABLE_XSI
 
 AC_CONFIG_FILES([
 Makefile
 ux/Makefile
+ux/x86-64/Makefile
 ux/beos/Makefile
+ux/darwin/Makefile
 sys/Makefile
 t/Makefile
 ])

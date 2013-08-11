@@ -24,7 +24,7 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/sys/types.h.html
 # define UX_SYS_TYPES_H_               1
 
 /* size_t */
-# include <ux/size.h>
+# include <ux/sizedef.h>
 /* clock_t, clockid_t, time_t, timer_t */
 # include <ux/timedef.h>
 

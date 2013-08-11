@@ -14,24 +14,17 @@
  *  limitations under the License.
  */
 
-#ifndef UX_FIXEDTYPES_H_
-# define UX_FIXEDTYPES_H_              1
+#ifndef UX_MACHTYPES_H_
+# define UX_MACHTYPES_H_               1
 
-# if defined(__i386__) || defined(__x86_64__) || defined(_M_IX86) || defined(_M_AMD64)
-
-#  define UX_INT8_                     signed char
-#  define UX_UINT8_                    unsigned char
-#  define UX_INT16_                    signed short
-#  define UX_UINT16_                   unsigned short
-#  define UX_INT32_                    signed int
-#  define UX_UINT32_                   unsigned int
-#  define UX_INT64_                    signed long long
-#  define UX_UINT64_                   unsigned long long
-
+# if defined(__x86_64__) || defined(_M_AMD64)
+#  include <ux/x86-64/types.h>
+# elif defined(__i86__) || defined(__i186__) || defined(__i286__) || defined(_M_I86) || defined(_M_I186) || defined(_M_I286)
+#  include <ux/i86/types.h>
+# elif defined(__i386__) || defined(_M_IX86)
+#  include <ux/x86/types.h>
 # else
-
 #  error Unsupported host architecture
-
 # endif
 
 #endif /*!UX_FIXEDTYPES_H_*/

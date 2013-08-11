@@ -13,19 +13,6 @@
 ##  limitations under the License.
 ##
 
-ACLOCAL_AMFLAGS = -I m4
+subincludedir = $(includedir)/ux/darwin
 
-EXTRA_DIST = README PORTING LICENSE-2.0
-
-SUBDIRS = ux sys t .
-
-include_HEADERS = \
-	stdarg.h stdbool.h stddef.h stdint.h
-
-tests: all
-	t/cdefs-1
-	t/stdarg-1
-	t/stdbool-1
-	t/stddef-1
-	t/stdint-1
-	t/types-1
+subinclude_HEADERS = types.h

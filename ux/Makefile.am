@@ -13,9 +13,11 @@
 ##  limitations under the License.
 ##
 
-SUBDIRS = beos
+SUBDIRS = \
+	x86-64 \
+	beos darwin
 
 subincludedir = $(includedir)/ux
 
 subinclude_HEADERS = \
-	cdefs.h fixedtypes.h size.h timedef.h
+	cdefs.h machtypes.h sizedef.h timedef.h

@@ -17,6 +17,12 @@
 #ifndef UX_CDEFS_H_
 # define UX_CDEFS_H_                   1
 
+# ifndef _POSIX_C_SOURCE
+#  if defined(_XOPEN_SOURCE) && _XOPEN_SOURCE == 600
+#   define _POSIX_C_SOURCE             200112L
+#  endif
+# endif
+
 # if defined(__cplusplus)
 #  define UX_BEGIN_DECLS_              extern "C" {
 #  define UX_END_DECLS_                }

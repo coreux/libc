@@ -14,18 +14,16 @@
  *  limitations under the License.
  */
 
-#ifndef UX_TIMEDEF_H_
-# define UX_TIMEDEF_H_                 1
+/* Ensure the compiler doesn't attempt to provide its own implementation */
+#include "../stdbool.h"
 
-# if _XOPEN_SOURCE >= 600
-/* clock_t: Used for system times in clock ticks or CLOCKS_PER_SEC */
-typedef int clock_t;
-# endif
+/* This is purely a compilation test: execution should be a no-op */
 
-/* time_t: Used for time in seconds */
-typedef int time_t;
+int
+main(int argc, char **argv)
+{
+	(void) argc;
+	(void) argv;
 
-/* timer_t: Used for timer ID returned by timer_create() */
-typedef void *timer_t;
-
-#endif /*!UX_TIMEDEF_H_*/
+	return 0;
+}

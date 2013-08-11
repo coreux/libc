@@ -14,18 +14,21 @@
  *  limitations under the License.
  */
 
-#ifndef UX_TIMEDEF_H_
-# define UX_TIMEDEF_H_                 1
+/*
+http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stdbool.h.html
+*/
 
-# if _XOPEN_SOURCE >= 600
-/* clock_t: Used for system times in clock ticks or CLOCKS_PER_SEC */
-typedef int clock_t;
+#ifndef UX_STDBOOL_H_
+# define UX_STDBOOL_H_                 1
+
+# if __STDC_VERSION__ >= 199901L
+#  define bool                         _Bool
+# else
+#  define bool                         int
 # endif
 
-/* time_t: Used for time in seconds */
-typedef int time_t;
+# define false                         0
+# define true                          1
+# define __bool_true_false_are_defined 1
 
-/* timer_t: Used for timer ID returned by timer_create() */
-typedef void *timer_t;
-
-#endif /*!UX_TIMEDEF_H_*/
+#endif /*!UX_STDBOOL_H_*/

@@ -36,7 +36,7 @@ typedef char *va_list;
 # elif defined(__GNUC__)
 
 /* Modern GCC requires minimal handling; equivalents are defined by the
- * compiler with a __builtin_ prefix
+ * compiler with a __builtin_ prefix.
  */
 typedef __builtin_va_list va_list;
 
@@ -44,6 +44,43 @@ typedef __builtin_va_list va_list;
 #  define va_copy(dest, src)           __builtin_va_copy(ap)
 #  define va_arg(ap, type)             __builtin_va_arg(ap, type)
 #  define va_end(ap)                   __builtin_va_end(ap)
+
+# elif defined(_MSC_VER)
+
+/* The implementation of stdarg for Visual C++ depends upon the processor
+ * architecture.
+ */
+
+#   ifdef __cplusplus
+extern "C" void __cdecl __va_start(va_list *, ...);
+#   else
+void __cdecl __va_start(va_list *, ...);
+#   endif
+
+#  if defined(_M_AMD64)
+
+typedef char *va_list;
+
+#   define va_start(ap, rest)          __va_start(&ap, rest)
+
+/* Declare the compiler-provided __va_start() builtin */
+#  elif defined(_M_ALPHA)
+
+typedef struct
+{
+	char *a0;
+	int offset;
+} va_list;
+
+#  elif defined(_M_IX86)
+
+typedef char *va_list;
+
+#  elif defined(_M_IA64)
+
+typedef char *va_list;
+
+#  endif
 
 # else
 

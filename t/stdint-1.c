@@ -14,15 +14,16 @@
  *  limitations under the License.
  */
 
-#ifndef UX_SIZE_H_
-# define UX_SIZE_H_                    1
+/* Ensure the compiler doesn't attempt to provide its own implementation */
+#include "../stdint.h"
 
-/* size_t: Unsigned integer type of the result of the sizeof operator */
-# ifdef __SIZE_TYPE__
-typedef __SIZE_TYPE__ size_t;
-# else
-typedef unsigned long size_t;
-# endif
+/* This is purely a compilation test: execution should be a no-op */
 
-#endif /*!UX_SYS_TYPES_H_*/
+int
+main(int argc, char **argv)
+{
+	(void) argc;
+	(void) argv;
 
+	return 0;
+}
