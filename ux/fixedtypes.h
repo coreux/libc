@@ -17,7 +17,7 @@
 #ifndef UX_FIXEDTYPES_H_
 # define UX_FIXEDTYPES_H_              1
 
-# if defined(__i386__) || defined(__x86_64__)
+# if defined(__i386__) || defined(__x86_64__) || defined(_M_IX86) || defined(_M_AMD64)
 
 #  define UX_INT8_                     signed char
 #  define UX_UINT8_                    unsigned char
