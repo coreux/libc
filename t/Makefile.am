@@ -24,4 +24,5 @@ libutils_a_CPPFLAGS = @AM_CPPFLAGS@
 noinst_PROGRAMS = \
 	cdefs-1 \
 	stdarg-1 \
-	stddef-1
+	stddef-1 \
+	types-1

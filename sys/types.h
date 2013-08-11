@@ -59,6 +59,8 @@ typedef long int ssize_t;
 #  include <ux/interix/types.h>
 # elif (defined(__WIN32__) || defined(__WIN64__)|| defined(_WIN32) || defined(_WIN64)) && !defined(_VC_NODEFAULTLIB)
 #  include <ux/msvcrt/types.h>
+# else
+#  error Unsupported host kernel
 # endif
 
 #endif /*!UX_SYS_TYPES_H_*/

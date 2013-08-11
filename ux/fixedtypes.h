@@ -17,13 +17,21 @@
 #ifndef UX_FIXEDTYPES_H_
 # define UX_FIXEDTYPES_H_              1
 
-# define UX_INT8_                      signed char
-# define UX_UINT8_                     unsigned char
-# define UX_INT16_                     signed short
-# define UX_UINT16_                    unsigned short
-# define UX_INT32_                     signed int
-# define UX_UINT32_                    unsigned int
-# define UX_INT64_                     signed long long
-# define UX_UINT64_                    unsigned long long
+# if defined(__i386__) || defined(__x86_64__)
+
+#  define UX_INT8_                     signed char
+#  define UX_UINT8_                    unsigned char
+#  define UX_INT16_                    signed short
+#  define UX_UINT16_                   unsigned short
+#  define UX_INT32_                    signed int
+#  define UX_UINT32_                   unsigned int
+#  define UX_INT64_                    signed long long
+#  define UX_UINT64_                   unsigned long long
+
+# else
+
+#  error Unsupported host architecture
+
+# endif
 
 #endif /*!UX_FIXEDTYPES_H_*/
