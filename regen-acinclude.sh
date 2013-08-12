@@ -1,3 +1,5 @@
+#! /bin/sh
+
 ## Copyright 2013 Mo McRoberts.
 ##
 ##  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,17 +15,22 @@
 ##  limitations under the License.
 ##
 
-EXTRA_DIST = README LICENSE-2.0 regen-acinclude.m4
+# This script regenerates acinclude.m4 from a checked out copy of the m4
+# macro repository. See:
+#
+# https://github.com/nevali/m4.git
+#
+# It should only be necessary to change this script when the list of macro
+# files to be included, or the macros themselves, change.
 
-SUBDIRS = ux sys t .
+if test x"$1" = x"" ; then
+	echo "Usage: $0 M4DIR" >&2
+	exit 1
+fi
 
-include_HEADERS = \
-	stdarg.h stdbool.h stddef.h stdint.h
-
-tests: all
-	t/cdefs-1
-	t/stdarg-1
-	t/stdbool-1
-	t/stddef-1
-	t/stdint-1
-	t/types-1
+cat \
+	"$1/xcode.m4" \
+	"$1/cc.m4" \
+	"$1/posix.m4" \
+	>acinclude.m4
+exit $?
