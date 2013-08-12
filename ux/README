@@ -1,6 +1,6 @@
 The contents of this directory are installed to ${includedir}/ux and
 constitute implementation-private headers: they should never be included
-directly be user applications.
+directly by user applications.
 
 All symbols are prefixed __UX_, and all macros are prefixed "__UX_", in
 accordance with XSH 2.2.2 ("The Name Space"):
