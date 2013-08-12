@@ -20,21 +20,13 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/sys/types.h.html
 
 */
 
-#ifndef UX_SYS_TYPES_H_
-# define UX_SYS_TYPES_H_               1
+#ifndef __UX_SYS_TYPES_H
+# define __UX_SYS_TYPES_H              1
 
-/* size_t */
-# include <ux/sizedef.h>
-/* clock_t, clockid_t, time_t, timer_t */
-# include <ux/timedef.h>
+/* Determine architecture-specific types */
+# include <ux/machtypes.h>
 
-/* ssize_t: Used for a count of bytes or error indication */
-# ifdef __SSIZE_TYPE__
-typedef __SSIZE_TYPE__ ssize_t;
-# else
-typedef long int ssize_t;
-# endif
-
+/* Determine kernel-specific types */
 # if defined(__APPLE__)
 #  include <ux/darwin/types.h>
 # elif defined(__linux__)
@@ -63,5 +55,13 @@ typedef long int ssize_t;
 #  error Unsupported host kernel
 # endif
 
-#endif /*!UX_SYS_TYPES_H_*/
+/* size_t */
+# include <ux/sizedef.h>
+/* clock_t, clockid_t, time_t, timer_t */
+# include <ux/timedef.h>
+
+/* ssize_t: Used for a count of bytes or error indication */
+typedef __UX_SSIZE ssize_t;
+
+#endif /*!__UX_SYS_TYPES_H*/
 

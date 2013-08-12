@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 
-#ifndef UX_CDEFS_H_
-# define UX_CDEFS_H_                   1
+#ifndef __UX_CDEFS_H
+# define __UX_CDEFS_H                  1
 
 # ifndef _POSIX_C_SOURCE
 #  if defined(_XOPEN_SOURCE) && _XOPEN_SOURCE == 600
@@ -24,32 +24,32 @@
 # endif
 
 # if defined(__cplusplus)
-#  define UX_BEGIN_DECLS_              extern "C" {
-#  define UX_END_DECLS_                }
+#  define __UX_BEGIN_DECLS             extern "C" {
+#  define __UX_END_DECLS               }
 # else
-#  define UX_BEGIN_DECLS_
-#  define UX_END_DECLS_
+#  define __UX_BEGIN_DECLS
+#  define __UX_END_DECLS
 # endif
 
-# define UX_CONCAT_(a, b)              a ## b
-# define UX_STRING_(a)                 #a
+# define __UX_CONCAT(a, b)             a ## b
+# define __UX_STRING(a)                #a
 
 # if defined(__GNUC__)
-#  define UX_WEAK_                     __attribute__((weak))
-#  if defined(__APPLE__) || defined(_WIN32)
-#   define UX_SUF_(name, suffix)       __asm("_" UX_STRING_(name) suffix)
+#  define __UX_WEAK                    __attribute__((weak))
+/* Darwin and Win32/Win64 prefix global symbols with an underscore */
+#  if defined(__APPLE__) || defined(_WIN32) || defined(_WIN64)
+#   define __UX_SUF(name, suffix)      __asm("_" __UX_STRING(name) suffix)
 #  else
-#   define UX_SUF_(name, suffix)       __asm(UX_STRING_(name) suffix)
+#   define __UX_SUF(name, suffix)      __asm(__UX_STRING(name) suffix)
 #  endif
 # else
-#  define UX_WEAK_
-#  define UX_SUF_(name, suffix)
+#  error Unsupported compiler
 # endif
 
-# define UX_SUFFIX_UX03_               "$UX$2003"
-# define UX_SUFFIX_PRIVATE_            "$UX$private"
+# define __UX_SUFFIX_UX03              "$UX$2003"
+# define __UX_SUFFIX_PRIVATE           "$UX$private"
 
-# define UX_SYM03_(name)               UX_SUF_(name, UX_SUFFIX_UX03_)
-# define UX_PRIVATE_(name)             UX_SUF_(name, UX_SUFFIX_PRIVATE_)
+# define __UX_SYM03(name)              __UX_SUF(name, __UX_SUFFIX_UX03)
+# define __UX_PRIVATE(name)            __UX_SUF(name, __UX_SUFFIX_PRIVATE)
 
-#endif /*!UX_CDEFS_H_*/
+#endif /*!__UX_CDEFS_H*/

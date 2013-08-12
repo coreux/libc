@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 
-#ifndef UX_DARWIN_TYPES_H_
-# define UX_DARWIN_TYPES_H_            1
+#ifndef __UX_DARWIN_TYPES_H
+# define __UX_DARWIN_TYPES_H           1
 
 # if !defined(__APPLE__)
 #  error Compilation of this file is only supported on Darwin
@@ -24,13 +24,13 @@
 # include <ux/machtypes.h>
 
 /* blkcnt_t: Used for file block counts */
-typedef UX_INT64_ blkcnt_t;
+typedef __UX_INT64 blkcnt_t;
 
 /* blksize_t: Used for block sizes */
-typedef UX_INT32_ blksize_t;
+typedef __UX_INT32 blksize_t;
 
 /* dev_t: Used for device IDs */
-typedef UX_INT32_ dev_t;
+typedef __UX_INT32 dev_t;
 
 /* fsblkcnt_t: Used for filesystem block counts */
 typedef unsigned int fsblkcnt_t;
@@ -39,37 +39,37 @@ typedef unsigned int fsblkcnt_t;
 typedef unsigned int fsfilcnt_t;
 
 /* gid_t: Used for group IDs */
-typedef UX_UINT32_ gid_t;
+typedef __UX_UINT32 gid_t;
 
 /* id_t: Used as a general identifier; can be used to contain at least a
  *   pid_t, uid_t or gid_t. */
-typedef UX_INT32_ id_t;
+typedef __UX_INT32 id_t;
 
 /* ino_t: Used for file serial numbers */
-typedef UX_INT64_ ino_t;
+typedef __UX_INT64 ino_t;
 
 /* key_t: Used for XSI interprocess communication */
-typedef UX_INT32_ key_t;
+typedef __UX_INT32 key_t;
 
 /* mode_t: Used for some file attributes */
-typedef UX_UINT16_ mode_t;
+typedef __UX_UINT16 mode_t;
 
 /* nlink_t: Used for link counts */
-typedef UX_UINT16_ nlink_t;
+typedef __UX_UINT16 nlink_t;
 
 /* off_t: Used for file sizes */
-typedef UX_INT64_ off_t;
+typedef __UX_INT64 off_t;
 
 /* pid_t: Used for process IDs and process group IDs */
-typedef UX_INT32_ pid_t;
+typedef __UX_INT32 pid_t;
 
 /* suseconds_t: Used for time in microseconds */
-typedef UX_INT32_ suseconds_t;
+typedef __UX_INT32 suseconds_t;
 
 /* uid_t: Used for user IDs */
-typedef UX_UINT32_ uid_t;
+typedef __UX_UINT32 uid_t;
 
 /* useconds_t: Used for for time in microseconds */
-typedef UX_UINT32_ useconds_t;
+typedef __UX_UINT32 useconds_t;
 
-#endif /*!UX_DARWIN_TYPES_H_*/
+#endif /*!__UX_DARWIN_TYPES_H*/

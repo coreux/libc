@@ -1,4 +1,27 @@
-Common system headers.
+This package contains the UX core system headers. Specifically, it
+includes:
+
+stdarg.h
+stdbool.h
+stddef.h
+stdint.h
+sys/types.h
+
+It also includes a number of private headers, in the 'ux' subdirectory.
+These private headers are strictly not to be included directly by user
+applications.
+
+All of the included headers install to ${includedir}, which defaults to
+${prefix}/include (which itself defaults to /usr/local).
+
+Unless you know precisely what you are doing, do not install these
+headers on top of your existing system-provided headers: you will
+almost certainly break your compilation environment.
+
+See ux/README for an explanation of the private headers, particularly
+if you are porting UX to a new architecture or kernel.
+
+---------------------------------------------------------------------------
 
 Copyright 2013 Mo McRoberts.
 

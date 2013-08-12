@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 
-#ifndef UX_MACHTYPES_H_
-# define UX_MACHTYPES_H_               1
+#ifndef __UX_MACHTYPES_H
+# define __UX_MACHTYPES_H              1
 
 # if defined(__x86_64__) || defined(_M_AMD64)
 #  include <ux/x86-64/types.h>
@@ -27,4 +27,4 @@
 #  error Unsupported host architecture
 # endif
 
-#endif /*!UX_FIXEDTYPES_H_*/
+#endif /*!__UX_FIXEDTYPES_H*/

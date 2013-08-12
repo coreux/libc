@@ -20,8 +20,8 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stddef.h.html
 
 */
 
-#ifndef UX_STDDEF_H_
-# define UX_STDDEF_H_                  1
+#ifndef __UX_STDDEF_H
+# define __UX_STDDEF_H                 1
 
 # include <ux/machtypes.h>
 
@@ -50,7 +50,7 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stddef.h.html
 # endif
 
 /* ptrdiff_t: Signed integer type of the result of subtracting two pointers */
-typedef UX_PTRDIFF_ ptrdiff_t;
+typedef __UX_PTRDIFF ptrdiff_t;
 
 /* wchar_t: Integer type whose range of values can represent distinct wide-
  *   character codes for all members of the largest character set specified
@@ -59,9 +59,9 @@ typedef UX_PTRDIFF_ ptrdiff_t;
  *   set has a code value equal to its value when used as the lone character
  *   in an integer character constant.
  */
-typedef UX_WCHAR_ wchar_t;
+typedef __UX_WCHAR wchar_t;
 
 /* size_t: Unsigned integer type of the result of the sizeof operator */
 # include <ux/sizedef.h>
 
-#endif /*!UX_STDDEF_H_*/
+#endif /*!__UX_STDDEF_H*/

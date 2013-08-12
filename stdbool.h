@@ -18,8 +18,8 @@
 http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stdbool.h.html
 */
 
-#ifndef UX_STDBOOL_H_
-# define UX_STDBOOL_H_                 1
+#ifndef __UX_STDBOOL_H
+# define __UX_STDBOOL_H                1
 
 # if __STDC_VERSION__ >= 199901L
 #  define bool                         _Bool
@@ -31,4 +31,4 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stdbool.h.html
 # define true                          1
 # define __bool_true_false_are_defined 1
 
-#endif /*!UX_STDBOOL_H_*/
+#endif /*!__UX_STDBOOL_H*/

@@ -18,8 +18,8 @@
 http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stdarg.h.html
 */
 
-#ifndef UX_STDARG_H_
-# define UX_STDARG_H_                  1
+#ifndef __UX_STDARG_H
+# define __UX_STDARG_H                 1
 
 # if defined(__GNUC__) && (__GNUC__ < 3)
 
@@ -27,11 +27,11 @@ http://pubs.opengroup.org/onlinepubs/009695399/basedefs/stdarg.h.html
 
 typedef char *va_list;
 
-#  define UX_ROUNDED_(type) \
+#  define __UX_ROUNDED(type) \
 	(((sizeof(type) + sizeof(int) -1) / sizeof(int)) * sizeof(int))
 
 #  define va_start(ap, rest)           (ap = (va_list) __builtin_next_arg(rest))
-#  define va_arg(ap, type)             (ap = (va_list) ((char *) (ap) + UX_ROUNDED_(type)), *((type *) (void *) ((char *) (ap) - UX_ROUNDED_(type))))
+#  define va_arg(ap, type)             (ap = (va_list) ((char *) (ap) + __UX_ROUNDED(type)), *((type *) (void *) ((char *) (ap) - __UX_ROUNDED(type))))
 
 # elif defined(__GNUC__)
 
@@ -96,4 +96,4 @@ typedef char *va_list;
 #  define va_end(ap)                   ((void) 0)
 # endif
 
-#endif /*!UX_STDARG_H_*/
+#endif /*!__UX_STDARG_H*/

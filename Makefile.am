@@ -13,9 +13,7 @@
 ##  limitations under the License.
 ##
 
-ACLOCAL_AMFLAGS = -I m4
-
-EXTRA_DIST = README PORTING LICENSE-2.0
+EXTRA_DIST = README LICENSE-2.0
 
 SUBDIRS = ux sys t .
 

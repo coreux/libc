@@ -13,8 +13,9 @@
 ##  limitations under the License.
 
 AC_INIT([include],[master],[https://github.com/coreux/include/issues],,[https://github.com/coreux/include])
+AC_CONFIG_AUX_DIR([.])
+AC_CONFIG_MACRO_DIR([.])
 AM_INIT_AUTOMAKE([foreign])
-AC_CONFIG_MACRO_DIR([m4])
 AM_MAINTAINER_MODE
 BT_PROG_XCODE
 AC_PROG_CC
@@ -31,6 +32,7 @@ ux/x86-64/Makefile
 ux/beos/Makefile
 ux/darwin/Makefile
 ux/linux/Makefile
+ux/minix/Makefile
 sys/Makefile
 t/Makefile
 ])

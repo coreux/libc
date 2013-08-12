@@ -13,13 +13,6 @@
 ##  limitations under the License.
 ##
 
-SUBDIRS = \
-	x86 x86-64 \
-	beos darwin linux minix
+subincludedir = $(includedir)/ux/minix
 
-subincludedir = $(includedir)/ux
-
-subinclude_HEADERS = \
-	cdefs.h machtypes.h sizedef.h timedef.h
-
-EXTRA_DIST = README
+subinclude_HEADERS = types.h

@@ -14,36 +14,36 @@
  *  limitations under the License.
  */
 
-#ifndef __UX_LINUX_TYPES_H
-# define __UX_LINUX_TYPES_H            1
+#ifndef __UX_MINIX_TYPES_H
+# define __UX_MINIX_TYPES_H            1
 
-# if !defined(__linux__)
-#  error Compilation of this file is only supported on Linux
+# if !defined(_MINIX)
+#  error Compilation of this file is only supported on Minix
 # endif
 
 # include <ux/machtypes.h>
 
 /* blkcnt_t: Used for file block counts */
-typedef __UX_INT64 blkcnt_t;
+typedef __UX_INT32 blkcnt_t;
 
 /* blksize_t: Used for block sizes */
 typedef long blksize_t;
 
 /* dev_t: Used for device IDs */
-typedef __UX_UINT64 dev_t;
+typedef short dev_t;
 
 /* fsblkcnt_t: Used for filesystem block counts */
-typedef __UX_UINT64 fsblkcnt_t;
+typedef __UX_UINT32 fsblkcnt_t;
 
 /* fsfilcnt_t: Used for filesystem file counts */
-typedef __UX_UINT64 fsfilcnt_t;
+typedef __UX_UINT32 fsfilcnt_t;
 
 /* gid_t: Used for group IDs */
-typedef __UX_UINT32 gid_t;
+typedef char gid_t;
 
 /* id_t: Used as a general identifier; can be used to contain at least a
  *   pid_t, uid_t or gid_t. */
-typedef __UX_INT32 id_t;
+typedef int id_t;
 
 /* ino_t: Used for file serial numbers */
 typedef unsigned long ino_t;
@@ -52,24 +52,24 @@ typedef unsigned long ino_t;
 typedef __UX_INT32 key_t;
 
 /* mode_t: Used for some file attributes */
-typedef __UX_UINT32 mode_t;
+typedef unsigned short mode_t;
 
 /* nlink_t: Used for link counts */
-typedef int nlink_t;
+typedef short nlink_t;
 
 /* off_t: Used for file sizes */
-typedef __UX_INT64 off_t;
+typedef long off_t;
 
 /* pid_t: Used for process IDs and process group IDs */
-typedef __UX_INT32 pid_t;
+typedef int pid_t;
 
 /* suseconds_t: Used for time in microseconds */
-typedef __UX_INT32 suseconds_t;
+typedef long suseconds_t;
 
 /* uid_t: Used for user IDs */
-typedef __UX_UINT32 uid_t;
+typedef short uid_t;
 
 /* useconds_t: Used for for time in microseconds */
-typedef __UX_UINT32 useconds_t;
+typedef unsigned long useconds_t;
 
-#endif /*!__UX_LINUX_TYPES_H*/
+#endif /*!__UX_MINIX_TYPES_H*/

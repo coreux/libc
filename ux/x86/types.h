@@ -14,152 +14,160 @@
  *  limitations under the License.
  */
 
-#ifndef UX_X86_TYPES_H_
-# define UX_X86_TYPES_H_               1
+#ifndef __UX_X86_TYPES_H
+# define __UX_X86_TYPES_H              1
 
 # if !defined(__x86__) && !defined(_M_IX86) && !defined(__i386__)
-#  error Compilation of this file is only supported on x86
+#  error Compilation of this file is only supported on 32-bit x86
 # endif
 
-# define UX_CHAR_BITS_                 8
-# define UX_SHORT_BITS_                16
-# define UX_INT_BITS_                  32
-# define UX_LONG_BITS_                 32
-# define UX_PTR_BITS_                  32
+# define __UX_CHAR_BITS                8
+# define __UX_SHORT_BITS               16
+# define __UX_INT_BITS                 32
+# define __UX_LONG_BITS                32
+# define __UX_PTR_BITS                 32
 
-# define UX_INT8_C_(i)                 (i)
-# define UX_INT8_MIN_                  -127
-# define UX_INT8_MAX_                  127
-# define UX_UINT8_C_(i)                (i)
-# define UX_UINT8_MAX_                 128
-# define UX_INT16_C_(i)                (i)
-# define UX_INT16_MIN_                 -32767
-# define UX_INT16_MAX_                 32767
-# define UX_UINT16_C_(i)               (i)
-# define UX_UINT16_MAX_                65535
-# define UX_INT32_C_(i)                (i)
-# define UX_INT32_MIN_                 -2147483647
-# define UX_INT32_MAX_                 2147483647
-# define UX_UINT32_C_(i)               (i)
-# define UX_UINT32_MAX_                4294967295
-# define UX_INT64_C_(i)                (i ## LL)
-# define UX_INT64_MIN_                 -9223372036854775807LL
-# define UX_INT64_MAX_                 9223372036854775807LL
-# define UX_UINT64_C_(i)               (i ## ULL)
-# define UX_UINT64_MAX_                18446744073709551615ULL
+# define __UX_INT8_C(i)                (i)
+# define __UX_INT8_MIN                 -127
+# define __UX_INT8_MAX                 127
+# define __UX_UINT8_C(i)               (i)
+# define __UX_UINT8_MAX                128
+# define __UX_INT16_C(i)               (i)
+# define __UX_INT16_MIN                -32767
+# define __UX_INT16_MAX                32767
+# define __UX_UINT16_C(i)              (i)
+# define __UX_UINT16_MAX               65535
+# define __UX_INT32_C(i)               (i)
+# define __UX_INT32_MIN                -2147483647
+# define __UX_INT32_MAX                2147483647
+# define __UX_UINT32_C(i)              (i)
+# define __UX_UINT32_MAX               4294967295
+# define __UX_INT64_C(i)               (i ## LL)
+# define __UX_INT64_MIN                -9223372036854775807LL
+# define __UX_INT64_MAX                9223372036854775807LL
+# define __UX_UINT64_C(i)              (i ## ULL)
+# define __UX_UINT64_MAX               18446744073709551615ULL
 
-# define UX_INT8_                      signed char
-# define UX_UINT8_                     unsigned char
-# define UX_FAST8_                     int
-# define UX_UFAST8_                    unsigned int
-# define UX_INT16_                     signed short
-# define UX_UINT16_                    unsigned short
-# define UX_FAST16_                    int
-# define UX_UFAST16_                   unsigned int
-# define UX_FAST8_MIN_                 UX_INT32_MIN_
-# define UX_FAST8_MAX_                 UX_INT32_MAX_
-# define UX_UFAST8_MAX_                UX_UINT32_MAX_
-# define UX_FAST16_MIN_                UX_INT32_MIN_
-# define UX_FAST16_MAX_                UX_INT32_MAX_
-# define UX_UFAST16_MAX_               UX_UINT32_MAX_
-# define UX_INT32_                     signed int
-# define UX_UINT32_                    unsigned int
-# define UX_FAST32_MIN_                UX_INT32_MIN_
-# define UX_FAST32_MAX_                UX_INT32_MAX_
-# define UX_FAST32_                    int
-# define UX_UFAST32_MAX_               UX_UINT32_MAX_
-# define UX_UFAST32_                   unsigned int
+# define __UX_INT8                     signed char
+# define __UX_UINT8                    unsigned char
+# define __UX_FAST8                    int
+# define __UX_UFAST8                   unsigned int
+# define __UX_INT16                    signed short
+# define __UX_UINT16                   unsigned short
+# define __UX_FAST16                   int
+# define __UX_UFAST16                  unsigned int
+# define __UX_FAST8_MIN                __UX_INT32_MIN
+# define __UX_FAST8_MAX                __UX_INT32_MAX
+# define __UX_UFAST8_MAX               __UX_UINT32_MAX
+# define __UX_FAST16_MIN               __UX_INT32_MIN
+# define __UX_FAST16_MAX               __UX_INT32_MAX
+# define __UX_UFAST16_MAX              __UX_UINT32_MAX
+# define __UX_INT32                    signed int
+# define __UX_UINT32                   unsigned int
+# define __UX_FAST32_MIN               __UX_INT32_MIN
+# define __UX_FAST32_MAX               __UX_INT32_MAX
+# define __UX_FAST32                   int
+# define __UX_UFAST32_MAX              __UX_UINT32_MAX
+# define __UX_UFAST32                  unsigned int
 
 # ifdef _MSC_VER
-#  define UX_INT64_                    __int64
-#  define UX_UINT64_                   __uint64
-#  define UX_FAST64_                   __int64
-#  define UX_UFAST64_                  __uint64
-# else
-#  define UX_INT64_                    signed long long
-#  define UX_UINT64_                   unsigned long long
-#  define UX_FAST64_                   signed long long
-#  define UX_UFAST64_                  unsigned long long
+#  define __UX_INT64                   __int64
+#  define __UX_UINT64                  __uint64
+#  define __UX_FAST64                  __int64
+#  define __UX_UFAST64                 __uint64
+# elif defined(__GNUC__)
+#  define __UX_INT64                   signed long long
+#  define __UX_UINT64                  unsigned long long
+#  define __UX_FAST64                  signed long long
+#  define __UX_UFAST64                 unsigned long long
 # endif
 
 /* intmax_t */
 # ifdef __INTMAX_TYPE__
-#  define UX_INTMAX_                   __INTMAX_TYPE__
+#  define __UX_INTMAX                  __INTMAX_TYPE__
 # else
-#  define UX_INTMAX_                   UX_INT64_
+#  define __UX_INTMAX                  __UX_INT64
 # endif
-# define UX_INTMAX_C_(i)               (i ## LL)
-# define UX_INTMAX_MIN_                UX_INT64_MIN_
-# define UX_INTMAX_MAX_                UX_INT64_MAX_
+# define __UX_INTMAX_C(i)              (i ## LL)
+# define __UX_INTMAX_MIN               __UX_INT64_MIN
+# define __UX_INTMAX_MAX               __UX_INT64_MAX
 
 /* uintmax_t */
 # ifdef __UINTMAX_TYPE__
-#  define UX_UINTMAX_                  __UINTMAX_TYPE__
+#  define __UX_UINTMAX                 __UINTMAX_TYPE__
 # else
-#  define UX_UINTMAX_                  UX_UINT64_
+#  define __UX_UINTMAX                 __UX_UINT64
 # endif
-# define UX_UINTMAX_C_(i)              (i ## ULL)
-# define UX_UINTMAX_MAX_               UX_UINT64_MAX_
+# define __UX_UINTMAX_C(i)             (i ## ULL)
+# define __UX_UINTMAX_MAX              __UX_UINT64_MAX
 
 /* intptr_t */
 # ifdef __INTPTR_TYPE__
-#  define UX_INTPTR_                   __INTPTR_TYPE__
+#  define __UX_INTPTR                  __INTPTR_TYPE__
 # else
-#  define UX_INTPTR_                   UX_INT32_
+#  define __UX_INTPTR                  __UX_INT32
 # endif
-# define UX_INTPTR_MIN_                UX_INT32_MIN_
-# define UX_INTPTR_MAX_                UX_INT32_MAX_
+# define __UX_INTPTR_MIN               __UX_INT32_MIN
+# define __UX_INTPTR_MAX               __UX_INT32_MAX
 
 /* uintptr_t */
 # ifdef __UINTPTR_TYPE__
-#  define UX_UINTPTR_                  __UINTPTR_TYPE__
+#  define __UX_UINTPTR                 __UINTPTR_TYPE__
 # else
-#  define UX_UINTPTR_                  UX_UINT32_
+#  define __UX_UINTPTR                 __UX_UINT32
 # endif
-# define UX_UINTPTR_MAX_               UX_UINT32_MAX_
+# define __UX_UINTPTR_MAX              __UX_UINT32_MAX
 
 /* ptrdiff_t */
 # ifdef __PTRDIFF_TYPE__
-#  define UX_PTRDIFF_                  __PTRDIFF_TYPE__
+#  define __UX_PTRDIFF                 __PTRDIFF_TYPE__
 # else
-#  define UX_PTRDIFF_                  UX_INT32_
+#  define __UX_PTRDIFF                 __UX_INT32
 # endif
-# define UX_PTRDIFF_C_(i)              (i ## L)
-# define UX_PTRDIFF_MIN_               UX_INT32_MIN_
-# define UX_PTRDIFF_MAX_               UX_INT32_MAX_
+# define __UX_PTRDIFF_C(i)             (i ## L)
+# define __UX_PTRDIFF_MIN              __UX_INT32_MIN
+# define __UX_PTRDIFF_MAX              __UX_INT32_MAX
 
 /* wchar_t */
 # ifdef __WCHAR_TYPE__
-#  define UX_WCHAR_                    __WCHAR_TYPE__
+#  define __UX_WCHAR                   __WCHAR_TYPE__
 # else
-#  define UX_WCHAR_                    int
+#  define __UX_WCHAR                   int
 # endif
-# define UX_WCHAR_C_(i)                (i)
-# define UX_WCHAR_MIN_                 UX_INT32_MIN_
-# define UX_WCHAR_MAX_                 UX_INT32_MAX_
+# define __UX_WCHAR_C(i)               (i)
+# define __UX_WCHAR_MIN                __UX_INT32_MIN
+# define __UX_WCHAR_MAX                __UX_INT32_MAX
 
 /* wint_t */
 # ifdef __WINT_TYPE__
-#  define UX_WINT_                     __WCHAR_TYPE__
+#  define __UX_WINT                    __WCHAR_TYPE__
 # else
-#  define UX_WINT_                     int
+#  define __UX_WINT                    int
 # endif
-# define UX_WINT_C_(i)                 (i)
-# define UX_WINT_MIN_                  UX_INT32_MIN_
-# define UX_WINT_MAX_                  UX_INT32_MAX_
+# define __UX_WINT_C(i)                (i)
+# define __UX_WINT_MIN                 __UX_INT32_MIN
+# define __UX_WINT_MAX                 __UX_INT32_MAX
 
 /* size_t */
 # ifdef __SIZE_TYPE__
-#  define UX_SIZE_                     __SIZE_TYPE__
+#  define __UX_SIZE                    __SIZE_TYPE__
 # else
-#  define UX_SIZE_                     UX_UINT32_
+#  define __UX_SIZE                    __UX_UINT32
 # endif
-# define UX_SIZE_MAX_                  UX_UINT32_MAX_
+# define __UX_SIZE_MAX                 __UX_UINT32_MAX
+
+/* ssize_t */
+# ifdef __SSIZE_TYPE__
+#  define __UX_SSIZE                   __SSIZE_TYPE__
+# else
+#  define __UX_SSIZE                   __UX_INT32
+# endif
+# define __UX_SSIZE_MIN                __UX_INT32_MIN
+# define __UX_SSIZE_MAX                __UX_INT32_MAX
 
 /* sig_atomic_t */
-# define UX_SIG_ATOMIC_                int
-# define UX_SIG_ATOMIC_MIN_            UX_INT32_MIN_
-# define UX_SIG_ATOMIC_MAX_            UX_INT32_MAX_
+# define __UX_SIG_ATOMIC               int
+# define __UX_SIG_ATOMIC_MIN           __UX_INT32_MIN
+# define __UX_SIG_ATOMIC_MAX           __UX_INT32_MAX
 
-#endif /*!UX_X86_TYPES_H_*/
-
+#endif /*!__UX_X86_TYPES_H*/

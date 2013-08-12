@@ -14,12 +14,12 @@
  *  limitations under the License.
  */
 
-#ifndef UX_SIZEDEF_H_
-# define UX_SIZEDEF_H_                 1
+#ifndef __UX_SIZEDEF_H
+# define __UX_SIZEDEF_H                1
 
 # include <ux/machtypes.h>
 
 /* size_t: Unsigned integer type of the result of the sizeof operator */
-typedef UX_SIZE_ size_t;
+typedef __UX_SIZE size_t;
 
-#endif /*!UX_SIZEDEF_H_*/
+#endif /*!__UX_SIZEDEF_H*/
