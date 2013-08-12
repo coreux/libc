@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head><title>stdarg</title><style type="text/css">
+
+/********************************/
+/* start of styles in block.xsl */
+
+.formalpara-title {
+  font-weight: bold;
+}
+
+div.blockquote-title {
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+span.msgmain-title {
+  font-weight: bold;
+}
+
+span.msgsub-title {
+  font-weight: bold;
+}
+
+span.msgrel-title {
+  font-weight: bold;
+}
+
+div.msglevel, div.msgorig, div.msgaud {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+span.msglevel-title, span.msgorig-title, span.msgaud-title {
+  font-weight: bold;
+}
+
+div.msgexplan {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+span.msgexplan-title {
+  font-weight: bold;
+}
+
+/* end of styles in block.xsl */
+/********************************/
+
+/********************************/
+/* start of styles in autotoc.xsl */
+
+
+/* end of styles in autotoc.xsl */
+/********************************/
+
+/********************************/
+/* start of styles in formal.xsl */
+
+div.figure-title {
+  font-weight: bold;
+}
+
+div.example-title {
+  font-weight: bold;
+}
+
+div.equation-title {
+  font-weight: bold;
+}
+
+div.table-title {
+  font-weight: bold;
+}
+
+div.sidebar-title {
+  font-weight: bold;
+}
+
+
+/* end of styles in formal.xsl */
+/********************************/
+
+/********************************/
+/* start of styles in verbatim.xsl */
+
+div.programlisting {
+  white-space: pre;
+  font-family: monospace;
+}
+
+div.screen {
+  white-space: pre;
+  font-family: monospace;
+}
+
+div.synopsis {
+  white-space: pre;
+  font-family: monospace;
+}
+
+/* end of styles in verbatim.xsl */
+/********************************/
+
+/* footnote rule */
+hr.footnote-hr {
+  width: 100;
+}
+
+</style><meta name="generator" content="DocBook XSL Stylesheets V1.77.1"/></head><body><div xml:lang="en" class="refentry" id="stdarg-1"><div class="titlepage"/>
+  
+  
+  
+  
+  <div class="refnamediv"><h2>Name</h2><p>
+	stdarg
+	 — variable argument lists
+  </p></div>
+  
+  <div class="refsynopsisdiv"><h2>Synopsis</h2>
+	  <div class="funcsynopsis">
+		  <pre class="funcsynopsisinfo">#include &lt;stdarg.h&gt;</pre>
+		  <p>
+			  <code class="funcdef">void <strong class="fsfunc">va_start</strong>(</code>
+			  va_list <var class="pdparam">ap</var>, 
+			  <var class="pdparam">rest</var><code>)</code>;
+		  </p>
+		  <p>
+			  <code class="funcdef">type <strong class="fsfunc">va_arg</strong>(</code>
+			  va_list <var class="pdparam">ap</var>, 
+			  <var class="pdparam">type</var><code>)</code>;
+		  </p>
+		  <p>
+			  <code class="funcdef">void <strong class="fsfunc">va_copy</strong>(</code>
+			  va_list <var class="pdparam">dest</var>, 
+			  va_list <var class="pdparam">src</var><code>)</code>;
+		  </p>
+		  <p>
+			  <code class="funcdef">void <strong class="fsfunc">va_end</strong>(</code>
+			  va_list <var class="pdparam">ap</var><code>)</code>;
+		  </p>
+	  </div>
+  </div>
+  
+	<div class="refsect1" id="idp14208"><h2>Description</h2>
+		
+		<p>
+			Functions may be defined as accepting a variable number of arguments. The
+			macros defined in <code class="filename">&lt;stdarg.h&gt;</code> permit stepping
+			through the arguments passed to the called function.
+		</p>
+		<p>
+			An object of type <span class="type">va_list</span> must be declared. This object is
+			used by <code class="function">va_start</code>(), <code class="function">va_arg</code>(),
+			<code class="function">va_copy</code>() and <code class="function">va_end</code>().
+		</p>
+		<p>
+			The <span class="type">va_list</span> object is initialised by first calling the
+			<code class="function">va_start</code>() macro. The <em class="parameter"><code>rest</code></em>
+			argument is the last fixed parameter of the function's prototype (that is,
+			the parameter immediately preceding the <code class="literal">...</code> varadic
+			placeholder). Varadic functions must always be defined as requiring
+			at least one fixed parameter. The <em class="parameter"><code>rest</code></em>
+			parameter should not be declared as a register variable, a function,
+			or an array type, because its address is used to determine the
+			address of the parameter following it.
+		</p>
+		<p>
+			The <code class="function">va_arg</code>() macro returns the value of the parameter
+			pointed to by the <span class="type">va_list</span> <em class="parameter"><code>ap</code></em> and
+			advances the pointer to the next parameter. The <em class="parameter"><code>type</code></em>
+			specified in the call to <code class="function">va_arg</code>() is the expected
+			type of the parameter passed by the caller. It shall be specified in such
+			a way that the corresponding pointer type can be obtained by appending
+			<code class="literal">*</code>.
+		</p>
+		<p>
+			If <code class="function">va_arg</code>() is invoked more times than there are
+			varadic parameters, or if the <em class="parameter"><code>type</code></em> specified
+			does is not compatible with the type of parameter passed by the caller,
+			the results are undefined.
+		</p>
+		<p>
+			The <code class="function">va_copy</code>() macro copies the argument pointer
+			<em class="parameter"><code>src</code></em> into <em class="parameter"><code>dest</code></em>. Applications
+			must use <code class="function">va_copy</code>() rather than directly assigning
+			<em class="parameter"><code>src</code></em> to <em class="parameter"><code>dest</code></em> if they wish
+			to store the current state of an argument pointer.
+		</p>
+		<p>
+			When a <span class="type">va_list</span> object is no longer required, it must be
+			freed with <code class="function">va_end</code>().
+		</p>
+	</div>
+  
+  <div class="refsect1" id="idp52928"><h2>Standards</h2>
+	
+	<p>
+	  <code class="filename">&lt;stdarg.h&gt;</code> conforms to the
+	  <em class="citetitle">Single UNIX Specification, Version 3 (SUSv3)</em>.
+	</p>
+  </div>
+
+</div></body></html>

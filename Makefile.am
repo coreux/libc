@@ -13,12 +13,21 @@
 ##  limitations under the License.
 ##
 
-EXTRA_DIST = README LICENSE-2.0 regen-acinclude.m4
+EXTRA_DIST = regen-acinclude.m4
 
 SUBDIRS = ux sys t .
 
 include_HEADERS = \
 	stdarg.h stdbool.h stddef.h stdint.h
+
+dist_doc_DATA = README LICENSE-2.0 \
+	stdarg.3.xml stdarg.3.html
+dist_man3_MANS = stdarg.3
+
+stdarg.3: stdarg.3.xml
+	$(XML2MAN) $<
+stdarg.3.html: stdarg.3.xml
+	$(XML2HTML) $< > $@
 
 tests: all
 	t/cdefs-1

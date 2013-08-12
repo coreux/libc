@@ -1,0 +1,107 @@
+'\" t
+.\"     Title: stdarg
+.\"    Author: Mo McRoberts
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 08/12/2013
+.\"    Manual: Library Functions
+.\"    Source: System Manager's Manual
+.\"  Language: English
+.\"
+.TH "STDARG" "3" "08/12/2013" "System Manager's Manual" "Library Functions"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+stdarg \- variable argument lists
+.SH "SYNOPSIS"
+.sp
+.ft B
+.nf
+#include <stdarg\&.h>
+.fi
+.ft
+.HP \w'void\ va_start('u
+.BI "void va_start(va_list\ " "ap" ", " "rest" ");"
+.HP \w'type\ va_arg('u
+.BI "type va_arg(va_list\ " "ap" ", " "type" ");"
+.HP \w'void\ va_copy('u
+.BI "void va_copy(va_list\ " "dest" ", va_list\ " "src" ");"
+.HP \w'void\ va_end('u
+.BI "void va_end(va_list\ " "ap" ");"
+.SH "DESCRIPTION"
+.PP
+Functions may be defined as accepting a variable number of arguments\&. The macros defined in
+<stdarg\&.h>
+permit stepping through the arguments passed to the called function\&.
+.PP
+An object of type
+\fBva_list\fR
+must be declared\&. This object is used by
+\fBva_start\fR(),
+\fBva_arg\fR(),
+\fBva_copy\fR() and
+\fBva_end\fR()\&.
+.PP
+The
+\fBva_list\fR
+object is initialised by first calling the
+\fBva_start\fR() macro\&. The
+\fIrest\fR
+argument is the last fixed parameter of the function\*(Aqs prototype (that is, the parameter immediately preceding the
+\&.\&.\&.
+varadic placeholder)\&. Varadic functions must always be defined as requiring at least one fixed parameter\&. The
+\fIrest\fR
+parameter should not be declared as a register variable, a function, or an array type, because its address is used to determine the address of the parameter following it\&.
+.PP
+The
+\fBva_arg\fR() macro returns the value of the parameter pointed to by the
+\fBva_list\fR
+\fIap\fR
+and advances the pointer to the next parameter\&. The
+\fItype\fR
+specified in the call to
+\fBva_arg\fR() is the expected type of the parameter passed by the caller\&. It shall be specified in such a way that the corresponding pointer type can be obtained by appending
+*\&.
+.PP
+If
+\fBva_arg\fR() is invoked more times than there are varadic parameters, or if the
+\fItype\fR
+specified does is not compatible with the type of parameter passed by the caller, the results are undefined\&.
+.PP
+The
+\fBva_copy\fR() macro copies the argument pointer
+\fIsrc\fR
+into
+\fIdest\fR\&. Applications must use
+\fBva_copy\fR() rather than directly assigning
+\fIsrc\fR
+to
+\fIdest\fR
+if they wish to store the current state of an argument pointer\&.
+.PP
+When a
+\fBva_list\fR
+object is no longer required, it must be freed with
+\fBva_end\fR()\&.
+.SH "STANDARDS"
+.PP
+
+<stdarg\&.h>
+conforms to the
+Single UNIX Specification, Version 3 (SUSv3)\&.
