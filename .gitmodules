@@ -1,0 +1,3 @@
+[submodule "liberrno"]
+	path = liberrno
+	url = git://github.com/coreux/liberrno.git

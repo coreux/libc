@@ -1,0 +1,50 @@
+This is intended to constitute a standard C library (libc) which conforms
+to the Single UNIX Specification, Version 3 (SUSv3).
+
+---------------------------------------------------------------------------
+
+Unless you are a system integrator, do not install this package with a prefix
+whose include directory is in your C compiler's header search path.
+
+---------------------------------------------------------------------------
+
+To build libc, first install the include package from:
+
+	https://github.com/coreux/include.git
+
+This package includes the ux/cdefs.h header which is required by errno.h.
+
+If building from a git checkout, run:
+
+$ git submodule update --init --recursive
+$ autoreconf -i
+
+(This may produce some informational messages which can be ignored)
+
+Next, configure libc:
+
+$ ./configure --prefix=/path/to/ux
+
+If the libc prefix differs from that used to install the include package,
+you must specify its location using the --with-ux=... configure option.
+
+Finally, build and install libc:
+
+$ make
+$ sudo make install [DESTDIR=/path/to/staging/root]
+
+---------------------------------------------------------------------------
+
+Copyright 2013 Mo McRoberts.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
