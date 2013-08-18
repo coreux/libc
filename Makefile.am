@@ -20,7 +20,7 @@ dist_doc_DATA = LICENSE-2.0 \
 	stdarg.3.xml stdarg.3.html
 dist_man3_MANS = stdarg.3
 
-SUBDIRS = ux sys @subdirs@ t .
+SUBDIRS = sys @subdirs@ t .
 
 include_HEADERS = \
 	stdarg.h stdbool.h stddef.h stdint.h

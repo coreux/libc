@@ -13,7 +13,7 @@
 ##  limitations under the License.
 ##
 
-AM_CPPFLAGS = @AM_CPPFLAGS@ -I${top_builddir} -I${top_srcdir}
+AM_CPPFLAGS = @AM_CPPFLAGS@ @UX_CPPFLAGS@ -I${top_builddir} -I${top_srcdir}
 LDADD = libutils.a
 
 noinst_LIBRARIES = libutils.a

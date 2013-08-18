@@ -59,13 +59,6 @@ AC_CONFIG_SUBDIRS([libstring])
 
 AC_CONFIG_FILES([
 Makefile
-ux/Makefile
-ux/x86/Makefile
-ux/x86-64/Makefile
-ux/beos/Makefile
-ux/darwin/Makefile
-ux/linux/Makefile
-ux/minix/Makefile
 sys/Makefile
 t/Makefile
 ])
