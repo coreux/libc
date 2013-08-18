@@ -1,0 +1,39 @@
+The contents of this directory are installed to ${includedir}/ux and
+constitute implementation-private headers: they should never be included
+directly by user applications.
+
+All symbols are prefixed __UX_, and all macros are prefixed "__UX_", in
+accordance with XSH 2.2.2 ("The Name Space"):
+
+http://pubs.opengroup.org/onlinepubs/009695399/functions/xsh_chap02_02.html#tag_02_02_02
+
+"With the exception of identifiers beginning with the prefix _POSIX_, all
+identifiers that begin with an underscore and either an uppercase letter
+or another underscore are always reserved for any use by the implementation."
+
+cdefs.h
+    Defines utility macros used by other headers, depending upon the
+	compiler in use. When porting to a new compiler, cdefs.h must be
+	updated to support it.
+
+machtypes.h
+	Determines the host architecture and includes the corresponding
+	ux/<arch>/types.h file.
+
+<arch>/types.h
+	Defines core types and limits specific to the host architecture. Of all
+	the macros defined, only those related to INT64/UINT64 are optional (they
+	may be omitted if, and only if, the compiler does not have a native 64-bit
+	scalar type). See x86-64/types.h for a canonical example.
+
+<kernel>/types.h
+	Defines core types which make up the kernel-userspace ABI. These types are
+	exposed to applications through the inclusion of <sys/types.h>. See
+	linux/types.h for the canonical example. It is critically important that
+	the types specified match those used by the kernel.
+
+sizedef.h
+	Defines size_t (included by multiple public headers)
+
+timedef.h
+	Defines clock_t, time_t and timer_t (included by multiple public headers)

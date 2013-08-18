@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry xml:id="stdarg-1" xmlns="http://docbook.org/ns" version="5.0" xml:lang="en">
+  <info>
+	<title>Library Functions</title>
+	<productname>System Manager's Manual</productname>
+	<authorgroup>
+	  <author>
+		<personname>
+		  <firstname>Mo</firstname>
+		  <surname>McRoberts</surname>
+		</personname>
+	  </author>
+	</authorgroup>
+	<copyright>
+	  <year>2013</year>
+	  <holder>Mo McRoberts</holder>
+	</copyright>
+  </info>
+  
+  <refmeta>
+	<refentrytitle>stdarg</refentrytitle>
+	<manvolnum>3</manvolnum>
+  </refmeta>
+  
+  <refnamediv>
+	<refname>stdarg</refname>
+	<refpurpose>variable argument lists</refpurpose>
+  </refnamediv>
+  
+  <refsynopsisdiv>
+	  <funcsynopsis>
+		  <funcsynopsisinfo>#include &lt;stdarg.h&gt;</funcsynopsisinfo>
+		  <funcprototype>
+			  <funcdef><type>void</type> <function>va_start</function></funcdef>
+			  <paramdef><type>va_list</type> <parameter>ap</parameter></paramdef>
+			  <paramdef><parameter>rest</parameter></paramdef>
+		  </funcprototype>
+		  <funcprototype>
+			  <funcdef><type>type</type> <function>va_arg</function></funcdef>
+			  <paramdef><type>va_list</type> <parameter>ap</parameter></paramdef>
+			  <paramdef><parameter>type</parameter></paramdef>
+		  </funcprototype>
+		  <funcprototype>
+			  <funcdef><type>void</type> <function>va_copy</function></funcdef>
+			  <paramdef><type>va_list</type> <parameter>dest</parameter></paramdef>
+			  <paramdef><type>va_list</type> <parameter>src</parameter></paramdef>
+		  </funcprototype>
+		  <funcprototype>
+			  <funcdef><type>void</type> <function>va_end</function></funcdef>
+			  <paramdef><type>va_list</type> <parameter>ap</parameter></paramdef>
+		  </funcprototype>
+	  </funcsynopsis>
+  </refsynopsisdiv>
+  
+	<refsect1>
+		<title>Description</title>
+		<para>
+			Functions may be defined as accepting a variable number of arguments. The
+			macros defined in <filename>&lt;stdarg.h&gt;</filename> permit stepping
+			through the arguments passed to the called function.
+		</para>
+		<para>
+			An object of type <type>va_list</type> must be declared. This object is
+			used by <function>va_start</function>(), <function>va_arg</function>(),
+			<function>va_copy</function>() and <function>va_end</function>().
+		</para>
+		<para>
+			The <type>va_list</type> object is initialised by first calling the
+			<function>va_start</function>() macro. The <parameter>rest</parameter>
+			argument is the last fixed parameter of the function's prototype (that is,
+			the parameter immediately preceding the <literal>...</literal> varadic
+			placeholder). Varadic functions must always be defined as requiring
+			at least one fixed parameter. The <parameter>rest</parameter>
+			parameter should not be declared as a register variable, a function,
+			or an array type, because its address is used to determine the
+			address of the parameter following it.
+		</para>
+		<para>
+			The <function>va_arg</function>() macro returns the value of the parameter
+			pointed to by the <type>va_list</type> <parameter>ap</parameter> and
+			advances the pointer to the next parameter. The <parameter>type</parameter>
+			specified in the call to <function>va_arg</function>() is the expected
+			type of the parameter passed by the caller. It shall be specified in such
+			a way that the corresponding pointer type can be obtained by appending
+			<literal>*</literal>.
+		</para>
+		<para>
+			If <function>va_arg</function>() is invoked more times than there are
+			varadic parameters, or if the <parameter>type</parameter> specified
+			does is not compatible with the type of parameter passed by the caller,
+			the results are undefined.
+		</para>
+		<para>
+			The <function>va_copy</function>() macro copies the argument pointer
+			<parameter>src</parameter> into <parameter>dest</parameter>. Applications
+			must use <function>va_copy</function>() rather than directly assigning
+			<parameter>src</parameter> to <parameter>dest</parameter> if they wish
+			to store the current state of an argument pointer.
+		</para>
+		<para>
+			When a <type>va_list</type> object is no longer required, it must be
+			freed with <function>va_end</function>().
+		</para>
+	</refsect1>
+  
+  <refsect1>
+	<title>Standards</title>
+	<para>
+	  <filename>&lt;stdarg.h&gt;</filename> conforms to the
+	  <citetitle>Single UNIX Specification, Version 3 (SUSv3)</citetitle>.
+	</para>
+  </refsect1>
+
+</refentry>
